@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NZWalksApi.Data;
 using NZWalksApi.Mappings;
+using NZWalksApi.Models.Domain;
 using NZWalksApi.Repositories;
 using Serilog;
 using System.Text;
@@ -70,6 +71,7 @@ builder.Services.AddScoped<IRegionRepositories, SQLRegionRepository>();
 builder.Services.AddScoped<IWalksRepositories, SQLWalkRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IImageRepository, LocalImageRepository>();
+builder.Services.AddScoped<IDifficulty,SQLDifficultiesRespository>();
 
 builder.Services.AddAutoMapper(typeof(AutomappingsProfiles));
 

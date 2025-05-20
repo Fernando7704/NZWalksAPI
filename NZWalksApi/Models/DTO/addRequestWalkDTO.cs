@@ -5,7 +5,7 @@ namespace NZWalksApi.Models.DTO
     public class addRequestWalkDTO
     {
         [Required]
-        [MaxLength(100,ErrorMessage ="")]
+        [MaxLength(100,ErrorMessage ="Nombre requerido")]
         public string name { get; set; }
         [Required]
         [MaxLength(1000)]
