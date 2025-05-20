@@ -36,7 +36,7 @@ namespace NZWalksApi.Controllers
             this._logger = logger;
         }
         [HttpGet]
-        [Authorize(Roles = "Lector,Escritor")]
+        //[Authorize(Roles = "Lector,Escritor")]
         public async Task<IActionResult> GetAll()
         {
 
@@ -72,7 +72,7 @@ namespace NZWalksApi.Controllers
         //´POST TO CREATE A NEW REGION
         [HttpPost]
         [ValidateModel]
-        [Authorize(Roles = "Escritor")]
+        //[Authorize(Roles = "Escritor")]
         public async Task<IActionResult> Add([FromBody] addRegionRequestDto addRegionRequestDto)
         {
 
@@ -85,10 +85,10 @@ namespace NZWalksApi.Controllers
         [HttpPut]
         [Route("{id:Guid}")]
         [ValidateModel]
-        [Authorize(Roles = "Escritor")]
+        //[Authorize(Roles = "Escritor")]
         public async Task<IActionResult> update([FromRoute] Guid id, [FromBody] RegionDTO regionDTO)
         {
-            var regionDomainModel = mapper.Map<Region>(regionDTO);
+            var regionDomainModel = mapper.Map<Region>(regionDTO);  
             regionDomainModel = await RegionRepositories.updateAsync(id, regionDomainModel);
 
             if (regionDomainModel == null)

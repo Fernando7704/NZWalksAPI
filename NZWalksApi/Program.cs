@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
@@ -59,6 +60,11 @@ builder.Services.AddSwaggerGen(option => {
             new List<string>()
         }
     });
+});
+builder.Services.AddFluentValidation(option =>
+{
+    option.RegisterValidatorsFromAssemblyContaining<Program>();
+    //option.DisableDataAnnotationsValidation = true;
 });
 
 builder.Services.AddDbContext<NZWalksDbContextcs>(options =>
