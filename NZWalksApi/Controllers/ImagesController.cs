@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NZWalksApi.Models.Domain;
 using NZWalksApi.Models.DTO;
@@ -18,6 +19,7 @@ namespace NZWalksApi.Controllers
         }
         [HttpPost]
         [Route("Upload")]
+        [Authorize(Roles = "Escritor")]
         public async Task<IActionResult> Upload([FromForm] ImageUploadRequestDto imageUploadRequestDto)
         {
             ValidateFileUpload(imageUploadRequestDto);
